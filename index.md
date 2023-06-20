@@ -7,3 +7,5 @@
 #
 layout: home
 ---
+
+<h2>Projects</h2>

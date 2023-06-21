@@ -51,3 +51,11 @@ minima:
 # Set to `true` to show excerpts on the homepage.
 #
 # show_excerpts: false
+
+collections:
+  writeups:
+    output: true
+    permalink: /writeups/:slug
+  posts:
+    output: true
+    permalink: /posts/:slug

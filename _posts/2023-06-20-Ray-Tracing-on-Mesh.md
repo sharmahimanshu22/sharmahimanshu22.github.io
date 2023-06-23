@@ -5,6 +5,6 @@ layout: post
 
 ![](/images/RayTracingOnKDTree/neptune.jpg)
 neptune
-<br/>
+<br/><br/>
 ![](/images/RayTracingOnKDTree/vase.jpg)
 vase

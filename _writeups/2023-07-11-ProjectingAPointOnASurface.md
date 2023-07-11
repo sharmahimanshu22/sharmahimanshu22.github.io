@@ -3,6 +3,38 @@ title: Projection of Point on a Surface
 layout: post
 ---
 
+---
+**NOTE**
+
+Let's fix some notation.
+
+A vector valued function $$f$$ will  be understood as a column matrix. For example, if $$f : \Re^2 \rightarrow \Re^3$$ then
+
+$$
+f(u,v) =
+\left[\begin{array}{ccc}
+f_1(u,v)\\
+f_2(u,v)\\
+f_3(u,v)
+\end{array}\right]
+$$
+
+The gradient matrix of $$f$$ will be understood as :
+
+$$
+grad(f)(u,v) =
+\left[\begin{array}{ccc}
+\frac{\partial f_1(u,v)}{\partial u} & \frac{\partial f_1(u,v)}{\partial v}\\
+\frac{\partial f_2(u,v)}{\partial u} & \frac{\partial f_2(u,v)}{\partial v}\\
+\frac{\partial f_3(u,v)}{\partial u} & \frac{\partial f_3(u,v)}{\partial v}
+\end{array}\right]
+$$
+
+For a scalar valued function, gradient will be a row vector and will be denoted as $$grad(D)$$.<br>
+When grad(D) will be used as vector valued function it will become a column vector and will be denoted as $$D'$$.
+
+---
+
 
 We look at the problem of finding a projection of a point on a parametrized 2d surface. This setting is common in CAD kernels where the parametrized surface is represented using NURBS or Bezier surface.
 
@@ -55,37 +87,6 @@ $$
 \frac{\partial D}{\partial u_j u_k} = \sum_{i=1}^{d+1} 2 * \frac{\partial f_i(u)}{\partial u_j} * \frac{\partial f_i(u)}{\partial u_k} +   2 * \frac{\partial f_i(u)}{\partial u_j u_k} * (f_i(u) - p_{i}) \tag{4}
 $$
 
----
-**NOTE**
-
-Let's fix some notation.
-
-A vector valued function $$f$$ will  be understood as a column matrix. For example, if $$f : \Re^2 \rightarrow \Re^3$$ then
-
-$$
-f(u,v) =
-\left[\begin{array}{ccc}
-f_1(u,v)\\
-f_2(u,v)\\
-f_3(u,v)
-\end{array}\right]
-$$
-
-The gradient matrix of $$f$$ will be understood as :
-
-$$
-grad(f)(u,v) =
-\left[\begin{array}{ccc}
-\frac{\partial f_1(u,v)}{\partial u} & \frac{\partial f_1(u,v)}{\partial v}\\
-\frac{\partial f_2(u,v)}{\partial u} & \frac{\partial f_2(u,v)}{\partial v}\\
-\frac{\partial f_3(u,v)}{\partial u} & \frac{\partial f_3(u,v)}{\partial v}
-\end{array}\right]
-$$
-
-For a scalar valued function, gradient will be a row vector and will be denoted as $$grad(D)$$.<br>
-When grad(D) will be used as vector valued function it will become a column vector and will be denoted as $$D'$$.
-
----
 
 We want to write gradiant and hessian of the distance function as matrix function of gradient and hessian of surface function
 
@@ -210,3 +211,9 @@ $$
 
 Use equation(9) and (10) and plug it in the newton iteration equation (8).
 
+
+
+<h3>Further Comments<\h3>
+
+1. The parameters $$u, v$$ are usually restricted to a finite domain. While iterating, if we reach the boundary of domain for a parameter, we need to stop updating that parameter.
+2. We would start with multiple initial guesses. The newton method will coverge at any critical point, not necessarily a minima of the distance function. We need to compare the results from the critical points to conclude our results. 

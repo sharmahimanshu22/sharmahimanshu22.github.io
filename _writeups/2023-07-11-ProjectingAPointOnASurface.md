@@ -1,5 +1,5 @@
 ---
-title: Projection of Point on a Surface
+title: Projection of point on a surface
 layout: post
 ---
 
@@ -38,7 +38,7 @@ When grad(D) will be used as vector valued function it will become a column vect
 
 We look at the problem of finding a projection of a point on a parametrized 2d surface. This setting is common in CAD kernels where the parametrized surface is represented using NURBS or Bezier surface.
 
-There are two ways we can thing about it.
+There are two ways we can think about it.
 1. Finding the point on the surface closest to the given point.
 2. Finding the orthogonal projection of the point on the surface.
 
@@ -47,7 +47,6 @@ It can be proved that the closest point will indeed be an orthogonal projection 
 
 Let's see how can we device iterative methods for the projection.
 
-<h3> Finding the closest point on the surface</h3>
 
 
 Let $$\Gamma \subset \Re^{d+1}$$ be a sufficiently regular surface parametrized by
@@ -65,9 +64,12 @@ $$
 We are looking for $$x_{\Gamma}$$ in terms of its parameters.
 
 
-Let's assume the norm to be eculidean. The given point whose projection is to be found be $$p$$.
+Let's assume the norm to be euclidean. The given point whose projection is to be found be $$p$$.
 
-Given we want to minimize the distance, it is equivalent to finding roots of the derivative of the distance function with the condition that determinant of hessian is greater than 0.
+
+<h2>First Approach: Finding the closest point</h2>
+
+Given we want to minimize the distance, it is equivalent to finding roots of the derivative of the distance function with the condition that determinant of Hessian is greater than 0.
 
 We wish to minimize:
 
@@ -88,7 +90,7 @@ $$
 $$
 
 
-We want to write gradiant and hessian of the distance function as matrix function of gradient and hessian of surface function
+We want to write gradient and Hessian of the distance function as matrix function of gradient and Hessian of surface function.
 
 Matrix form of equation(3) is equivalent to:
 
@@ -108,10 +110,10 @@ $$
 hessian(D) = 2*\sum_{i}^{d+1}grad(f_i)^T.grad(f_i) + 2 * \sum_{i}^{d+1}(f_i(u) - p_i) * hessian(f_i) \tag{7}
 $$
 
-The hessian of the surface function is not readily available in the result of surface evaluation in CAD kernels. We will take a slightly different approach when actually working with kernels in the next section.
+The Hessian of the surface function is not readily available in the result of surface evaluation in CAD kernels. We will take a slightly different approach when  working with kernels in the next section.
 
-To minimize this objective function with respect to $$u$$, we actually find zeros of the gradient of distance function.
-Treating gradient as a vector function, the derivative of gradient transposed is same as hessian.
+To minimize this objective function with respect to $$u$$, we find zeros of the gradient of distance function.
+Treating gradient as a vector function, the derivative of gradient transposed is same as Hessian.
 
 $$
 D'(u) =
@@ -137,10 +139,10 @@ D''(u) =
 \end{array}\right]
 $$
 
-which is same as hessian(D)
+which is same as $$hessian(D)$$.
 
 
-The newton iteration for this case becomes
+The Newton iteration for this case becomes
 
 $$
 u_{k+1} = u_{k} -  (D''(u_k))^{-1}.(D'(u_k)) \tag{8}
@@ -213,7 +215,47 @@ Use equation(9) and (10) and plug it in the newton iteration equation (8).
 
 
 
-<h3>Further Comments<\h3>
+<h3>Further Comments</h3>
 
 1. The parameters $$u, v$$ are usually restricted to a finite domain. While iterating, if we reach the boundary of domain for a parameter, we need to stop updating that parameter.
-2. We would start with multiple initial guesses. The newton method will coverge at any critical point, not necessarily a minima of the distance function. We need to compare the results from the critical points to conclude our results. 
+2. We would start with multiple initial guesses. The newton method will coverge at any critical point, not necessarily a minima of the distance function. We need to compare the results from the critical points to conclude our results.
+
+
+
+<h2>Second Approach : Finding the orthogonal projection</h2>
+
+
+This approach takes very similar iteration pattern as Newton's method. In vanilla Newton's method, the desired value of function is always 0 and we make a linear approximation to update the parameter in each step.
+
+<b>Idea</b>
+
+We slightly modify this approach. We are looking for parameter values where the projection of a given point is orthogonal. Given that we don't know the value of the function at such a point, we need to find a different target. Starting with an intial guess on the surface, we make a linear approximation at the guess point. We project our given point on the tangent surface and use that point as a target value to update the parameter values. We repeat this process updating the target in each iteration (as opposed to constant 0 in the vanilla Newton's method) until we reach convergence to a orthogonal point.
+
+<b>Details</b>
+
+Let $$p$$ be the given point. 
+
+At any guess $$ f(u_1, u_2, ... u_d) \rightarrow q \in \Re^{d+1}$$ the tangent plane contains the vectors:
+
+$$
+(\frac{\partial f_1(u)}{\partial u_k}, \frac{\partial f_2(u)}{\partial u_k}, . . ,\frac{\partial f_{d+1}(u)}{\partial u_k})
+$$
+
+for all $$k$$.
+
+
+Or if we know the normal vector $$\vec{n}_q$$ at $$q$$ the plane is defined by the point $$q$$ and normal vector. We can easily compute the projection of a point on this plane.
+
+Let the projection of point $$p$$ on this tangent plane be $$r$$. Using linear approximation we have :
+
+$$
+r = q + \nabla(f) \Delta(u_k)
+$$
+
+From the above equation we can attempt to find $$\Delta(u_k)$$. However $$\nabla(f)$$ is not a square matrix, hence the regular inverse doesn't exist. We will have to resort to generalized inverse. We shall deal with it another day.
+
+
+
+
+
+

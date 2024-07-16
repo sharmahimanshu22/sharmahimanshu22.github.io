@@ -54,7 +54,31 @@ TWO-PRODUCT takes two p-bit floating point numbers and produce a non-overlapping
 If input is strongly-non-overlapping and round-to-even tiebreaking is used, output is also strongly-non-overlapping.
 
 
+
+
+Author uses these algorithms to create exact and adaptive versions of these predicates.
+From my experience with some github repositories, the adaptive versions from this paper have been replaced by FPG [^2][^3] and only the exact version of prediactes from Shewchuk's paper is used.
+
+
+
+In the paper [^3] the error propagation rules used are:
+
+<img src="/images/common/errorpropagation1.png" alt="voronoi" style="border: 2px solid  gray;">
+
+Here, even in multiplication, all error terms are linear in 'ulp/2' ($$\epsilon$$), even for the term associated with x*y.
+
+While in Shewchuk's paper the author takes care of higher order error terms and associates $$\epsilon^2$$ with the x*y term.
+
+Thus FPG generates a much simpler 'single step' filter with associated error bound.
+
+Predicate Construction Kit by Bruno Levy uses FPG by Sylvain Pion followed by exact predicates from Shewchuk's paper.
+
 ## References
 
 [^1]: Shewchuk, 1997. Adaptive precision floating-point arithmetic. Discrete & Computational Geometry https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
 
+[^2]: Andreas Meyer, Sylvain Pion. FPG: A code generator for fast and certified geometric predicates. Real Numbers and Computers, Jun 2008, Santiago de Compostela, Spain. pp.47-60. inria-00344297
+
+[^3]: Olivier Devillers, Sylvain Pion. Eﬀicient Exact Geometric Predicates for Delaunay Triangulations. RR-4351, INRIA. 2002. inria-00072237
+
+[^4]: Bruno Lévy. Robustness and Eﬀiciency of Geometric Programs The Predicate Construction Kit (PCK). Computer-Aided Design, 2015. hal-01225202

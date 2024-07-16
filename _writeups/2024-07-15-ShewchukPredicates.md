@@ -5,7 +5,7 @@ layout: post
 
 
 
-We will try to  discuss some of the nuances from Shewchuk's paper [^1].
+We will discuss some of the nuances from Shewchuk's paper [^1].
 
 
 

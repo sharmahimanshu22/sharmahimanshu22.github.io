@@ -36,6 +36,8 @@ No component is adjacent to 'two' other components
 A pair of adjacent components have the property that both components can be expressed with a one-bit significand.
 
 
+### Comments
+
 (Note: We will refer to some functions here by the same name as they are in the paper. For their definition, look at the paper)
 
 

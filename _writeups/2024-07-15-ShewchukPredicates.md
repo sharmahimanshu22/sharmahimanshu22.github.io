@@ -67,13 +67,11 @@ In the paper [^3] the error propagation rules used are:
 
 <img src="/images/common/errorpropagation1.png" alt="voronoi" style="border: 2px solid  gray;">
 
-Here, even in multiplication, all error terms are linear in 'ulp/2' ($$\epsilon$$), even for the term associated with x*y.
-
-While in Shewchuk's paper the author takes care of higher order error terms and associates $$\epsilon^2$$ with the x*y term.
+Here, in multiplication, all error terms are linear in 'ulp/2' ($$\epsilon$$), even for the term associated with x*y, whereas in Shewchuk's paper the author takes care of higher order error terms and associates $$\epsilon^2$$ with the x*y term.
 
 Thus FPG generates a much simpler 'single step' filter with associated error bound.
 
-Predicate Construction Kit by Bruno Levy uses FPG by Sylvain Pion followed by exact predicates from Shewchuk's paper.
+Predicate Construction Kit by Bruno Levy uses FPG by Sylvain Pion followed by exact predicates from Shewchuk's paper to compute robust predicates.
 
 ## References
 

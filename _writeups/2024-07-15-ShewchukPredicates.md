@@ -59,7 +59,7 @@ If input is strongly-non-overlapping and round-to-even tiebreaking is used, outp
 
 
 Author uses these algorithms to create exact and adaptive versions of these predicates.
-From my experience with some github repositories, the adaptive versions from this paper have been replaced by FPG [^2][^3] and only the exact version of prediactes from Shewchuk's paper is used.
+From my experience with some github repositories, the adaptive versions from this paper have been replaced by FPG [^2],[^3] and only the exact version of prediactes from Shewchuk's paper is used.
 
 
 

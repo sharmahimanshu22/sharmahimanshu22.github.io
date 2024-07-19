@@ -1,14 +1,14 @@
 ---
-title: Robust Predicates
+title: Robust Predicates and Degenerate Cases in Computational Geometric Algorithms
 layout: post
 ---
 
 
 
-### Computational Geometry requires robust predicates
+Computational Geometry requires robust predicates and dealing with degenerate cases.
 
 
-A.
+### Robust Predicates
 
 As is well known, computational geometry algorithms require that we are able to compute predicates in a 'robust' manner. Whether the 3d point lies above or below a plane should be computed either correctly without any floating point errors or at least 'consistently' in the sense that the result does not mess up the larger geometry. For example if we have three collinear points a, b, and c in that order, and we compute orientation of a new point 'd' with respect to this line, the answer should be same irrespective we use 'ab' , 'bc', or 'ac' to do the computation.
 
@@ -19,11 +19,15 @@ As is well known, computational geometry algorithms require that we are able to 
 
 are the popular techniques used in this field.
 
-B.
+All the above techniques so far addressed the predicates which were based on points explicitly fed as input. If there is a predicate based on intermediate constructed point (refer C), we will need other tecnniques.
+
+Marco Attene published his results on "indirect predicates" [^6] which computes exact predicates on intermediate points that are derived from the input points (interesection etc.). His code is available [here](https://github.com/MarcoAttene/Indirect_Predicates.git)
+
+### Degenerate Cases
 
 A second nuance in Computational Geometry Algorithm is dealing with degenerate cases. It can quickly become daunting to deal with each special case in an algorithm. A technique - Simulation of Simplicity - introduced in [^5] lays out a method to deal with this probelm.
 
-C.
+### Intermediate Constructions
 
 Another nuance in geometric algorithms involve the intermediate geometric objects generated through the algorithm. Suppose an algorithm reqiures a new point 'p' to be computed and stored as an intermediate value. This intermediate value will be further used in other predicates. A question arises of how these intermediate values should be stored and what do we need to take care of using these values.
 
@@ -37,4 +41,4 @@ Another nuance in geometric algorithms involve the intermediate geometric object
 [^3]: Hervé Brönnimann, Christoph Burnikel, Sylvain Pion. Interval Arithmetic Yields Eﬀicient Dynamic Filters for Computational Geometry. Discrete Applied Mathematics, 2001, 109, pp.25-47. inria- 00344281 https://inria.hal.science/inria-00344281/document
 [^4]: MPFR, boost multiprecision libraries
 [^5]: Herbert Edelsbrunner and Ernst Peter Mücke. 1990. Simulation of simplicity: a technique to cope with degenerate cases in geometric algorithms. ACM Trans. Graph. 9, 1 (Jan. 1990), 66–104. https://doi.org/10.1145/77635.77639
-
+[^6]: Marco Attene, Indirect predicates for geometric construction, arXiv:2105.09772 s

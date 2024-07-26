@@ -44,4 +44,4 @@ F & G
 \end{array}\right]
 $$
 
-is called the first fundamental matrix. Note that it is dependent on $$\Phi$$ which is the parametrization function of our manifold.
+is called the first fundamental matrix. Note that it is dependent on $$\Phi$$ which is the parametrization function of our manifold and the point at which we are computing it.

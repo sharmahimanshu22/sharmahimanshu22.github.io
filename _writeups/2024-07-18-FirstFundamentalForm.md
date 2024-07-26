@@ -1,20 +1,24 @@
 ---
-title: "Understanding Curvature"
+title: "First Fundamental Form"
 layout: post
 ---
 
-As of now this article proceeds in a very non-intuitive fashion. Shall make it better later.
 
-Given a 2D manifold parametrized by $$\Phi$$ the dot product of two elements in the tangent space.
+Let a 2D manifold be parametrized by $$\Phi$$
 
-Note that $$\Phi_u$$ is a 3d vector in the 2d tangent space of the manifold represented by $$\Phi : M \rightarrow N$$, $$M \subset \Re^2, N \subset \Re^3$$. The partial derivative
+$$
+\Phi : M \rightarrow N, M \subset \Re^2, N \subset \Re^3
+$$
+
+
+$$\Phi_u$$ and $$\Phi_v$$ are 3d vectors in the 2d tangent space of the manifold. The definition for the partial derivative is :
 
 $$
 \Phi_u = d\Phi (\frac{\partial}{\partial u})\\
 \Phi_v = d\Phi (\frac{\partial}{\partial v})
 $$
 
-where $$\frac{\partial}{\partial u}$$ and $$\frac{\partial}{\partial v}$$ are treated as basis of tangent space in the domain of $$\Phi$$
+where $$d\Phi$$ is the map from tangent space in $$M$$ to tangent space in $$N$$ and  $$\frac{\partial}{\partial u}$$ and $$\frac{\partial}{\partial v}$$ are interpreted as basis of tangent space in the domain $$M$$.
 
 The dot product of two vectors in the tangent space at a point in $$N$$ is given by:
 
@@ -40,4 +44,4 @@ F & G
 \end{array}\right]
 $$
 
-is called the first fundamental matrix. Not that it is dependent on $$\Phi$$ which in our case is the parametrization function of our manifold.
+is called the first fundamental matrix. Note that it is dependent on $$\Phi$$ which is the parametrization function of our manifold.

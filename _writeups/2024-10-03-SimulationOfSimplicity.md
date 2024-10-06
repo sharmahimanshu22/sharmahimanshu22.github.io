@@ -6,7 +6,7 @@ layout: post
 
 Simulation of Simplicity[^1] is one of cornerstones of predicate management in computational geometry. The other two being Shewchuk's expansions and Arithmetic Filters by Andreas Meyer and Sylvain Pion which basically use floating point error propagation to identify 'tight' cases.
 
-The paper starts with the intuition that if our data set has $n$ points of $d$ dimensions and the predicate takes $$k$$ points as input, we can think of a predicate as a function $$P$$ from a subspace $$\Re^{kd}$$ to $$\{-1,0,1\}$$.
+The paper starts with the intuition that if our data set has $$n$$ points of $$d$$ dimensions and the predicate takes $$k$$ points as input, we can think of a predicate as a function $$P$$ from a subspace $$\Re^{kd}$$ to $$\{-1,0,1\}$$.
 
 $$
 P : \Re^{kd} \rightarrow \{-1,0,1\}

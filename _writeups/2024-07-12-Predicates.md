@@ -19,7 +19,7 @@ As is well known, computational geometry algorithms require that we are able to 
 
 are the popular techniques used in this field.
 
-All the above techniques so far addressed the predicates which were based on points explicitly fed as input. If there is a predicate based on intermediate constructed point (refer C), we will need other tecnniques.
+All the above techniques so far addressed the predicates which were based on points explicitly fed as input. If there is a predicate based on intermediate constructed point (refer section Intermediate Construction), we will need other tecnniques.
 
 Marco Attene published his results on "indirect predicates" [^6] which computes exact predicates on intermediate points that are derived from the input points (interesection etc.). His code is available [here](https://github.com/MarcoAttene/Indirect_Predicates.git)
 

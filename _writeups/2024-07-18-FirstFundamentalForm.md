@@ -23,7 +23,7 @@ where $$d\Phi$$ is the map from tangent space in $$M$$ to tangent space in $$N$$
 The dot product of two vectors in the tangent space at a point in $$N$$ is given by:
 
 $$ \begin{align}
-I(a\Phi_u + b\Phi_v, c\Phi_u + d\Phi_v) = ac\langle\Phi_u, \Phi_u\rangle + (ad+bc)\langle\Phi_u,\Phi_v\rangle + bd\langle\Phi_v,\Phi_v\rangle
+I(a\Phi_u + b\Phi_v, c\Phi_u + d\Phi_v) = ac\langle\Phi_u, \Phi_u\rangle + (ad+bc)\langle\Phi_u,\Phi_v\rangle + bd\langle\Phi_v,\Phi_v\rangle  \tag{1} 
 \end{align}
 $$
 
@@ -44,4 +44,19 @@ F & G
 \end{array}\right]
 $$
 
-is called the first fundamental matrix. Note that it is dependent on $$\Phi$$ which is the parametrization function of our manifold and the point at which we are computing it.
+is called the first fundamental matrix. It is dependent on $$\Phi$$ which is the parametrization function of our manifold and the point at which we are computing it (which is same as saying it depens on current value of $$u,v$$ parameter or $$t$$ parameter in turn if we are dealing with a curve). However, it can be proved that the inner product given by $$(1)$$ is independent of the local coordinates chosen even though E,F, and G depend on it.
+
+
+
+The metric for $$\gamma'(t)$$ will be defined as :
+
+$$
+||\gamma'(t)|| = \sqrt{I(\gamma'(t), \gamma'(t))}
+$$
+
+The length of a curve on the manifold is given by:
+
+$$
+L(\gamma) = \int_{a}^{b} ||\gamma'(t)|| \; dt
+
+$$

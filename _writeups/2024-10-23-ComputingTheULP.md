@@ -6,7 +6,7 @@ layout: post
 
 The code to compute $$ulp$$ of 1 is as follows. 
 
-```
+```cpp
 #include <fenv.h>
 #include <iostream>
 #include <bitset>

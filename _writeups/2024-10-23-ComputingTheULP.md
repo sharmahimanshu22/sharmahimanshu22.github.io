@@ -46,7 +46,6 @@ Output:
 0000000000010000000000000000000000000000000000000000000000000000
 ```
 
-Instead of starting with ```r=1.0``` we can start with any number we expect to be greater than $$ulp$$. Recommend to start with a number that is representable as double precision floating point as it becomes easy to see how the answer will be $$ulp$$.
 
 In the method, we have disabled the subnormal computation. This is to compute the ulp disregarding subnormal numbers. We can skip disabling it as well.
 

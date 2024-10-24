@@ -32,6 +32,8 @@ L_{oo'} = \langle \frac{\partial^2 F_o}{\partial x^2}, F_{o'} \rangle + \langle 
 v = \langle \nabla.\vec{V}, F_o \rangle
 $$
 
+There is an extensive theory about b-spline functions which is used to compute these inner products.
+
 This oct-tree is now used as a layered mesh with layers closer to root being coarse mesh and layers at the leaf being the fine mesh. In the language of numerical partial differential equations this is called a multi-grid.
 
 The paper just mentions that they use Gauss-Siedel method to solve the laplace equation. Future papers which extend this work by same authors [^2] [^3] give out more details about this technique. In this approach they numerically solve the pde at each level of the oct tree moving from coarser to finer levels.

@@ -20,7 +20,7 @@ $$
 
 where $$d\Phi$$ is the map from tangent space in $$M$$ to tangent space in $$N$$ and  $$\frac{\partial}{\partial u}$$ and $$\frac{\partial}{\partial v}$$ are interpreted as basis of tangent space in the domain $$M$$.
 
-The dot product of two vectors in the tangent space at a point in $$N$$ is given by:
+The inner product of two vectors in the tangent space at a point in $$N$$ given by:
 
 $$ \begin{align}
 I(a\Phi_u + b\Phi_v, c\Phi_u + d\Phi_v) = ac\langle\Phi_u, \Phi_u\rangle + (ad+bc)\langle\Phi_u,\Phi_v\rangle + bd\langle\Phi_v,\Phi_v\rangle  \tag{1} 
@@ -60,3 +60,8 @@ $$
 L(\gamma) = \int_{a}^{b} ||\gamma'(t)|| \; dt
 
 $$
+
+
+
+
+First fundametal form is also same as a Riemannian metric induced from the embedding space $$\Re3$$. I believe that there are examples of Riemannian metric which are not induced from $$\Re3$$. And in that sense, first fundamental form need not be induced always from $$\Re3$$ but can be defined for any Riemannian metric.

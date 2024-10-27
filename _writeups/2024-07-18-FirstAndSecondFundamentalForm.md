@@ -148,3 +148,5 @@ $$
 \mathbf N = \Phi_{vv}.\mathbf{N},
 
 $$
+
+Note that the definition of $$\mathbf{L}, \mathbf{M}$$ and $$\mathbf{N}$$ is depenedent only on $$\Phi$$ and not on $$\gamma$$

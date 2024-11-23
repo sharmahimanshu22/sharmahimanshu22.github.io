@@ -1,5 +1,5 @@
 ---
-title: Delaunay Tetrahedralization
+title: Delaunay Tetrahedralization with Robust Predicates
 layout: post
 ---
 
